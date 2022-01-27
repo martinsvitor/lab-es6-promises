@@ -99,17 +99,14 @@ const makeBroccoli = async () => {
 makeBroccoli()
 
 // Bonus 2 - Promise all
-const step0 = obtainInstruction('brusselsSprouts', 0)
-const step1 = obtainInstruction('brusselsSprouts', 1)
-const step2 = obtainInstruction('brusselsSprouts', 2)
-const step3 = obtainInstruction('brusselsSprouts', 3)
-const step4 = obtainInstruction('brusselsSprouts', 4)
-const step5 = obtainInstruction('brusselsSprouts', 5)
-const step6 = obtainInstruction('brusselsSprouts', 6)
-const step7 = obtainInstruction('brusselsSprouts', 7)
-const steps = [step0, step1, step2, step3, step4, step5, step6, step7]
+const arrayOfSteps = [];
+for (let i = 0; i < 8; i++) {
+  const step = obtainInstruction('brusselsSprouts', i);
+  arrayOfSteps.push(step);
+  
+ }
 
-Promise.all(steps)
+Promise.all(arrayOfSteps)
 .then((values) => {
   // console.log(values)
   values.forEach((value) => document.querySelector("#brusselsSprouts").innerHTML += `<li>${value}</li>`)  
